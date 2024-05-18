@@ -23,12 +23,23 @@ app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded requests
 app.use(express.static(join(__dirname, '/'))); // Serve static files from the '/' directory
 
+import { identify } from './services/biteSpeedService.js';
+
 app.get('/', (req: Request, res: Response) => {
     res.send('BiteSpeed Fluxkart Server');
 });
 
-app.get('/testEndpoint', (req: Request, res: Response) => {
+app.get('/testEndpoint', async (req: Request, res: Response) => {
     res.send('BiteSpeed Fluxkart service testEndpoint');
+});
+
+app.post('/identify', async (req: Request, res: Response) => {
+    try {
+        const response = await identify(req.body);
+        res.status(200).send(response);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
 // Middleware to handle any errors
