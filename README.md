@@ -12,7 +12,7 @@ This is a small Node.js project using TypeScript, designed to demonstrate the us
 
 ### `POST https://bitespeed-fluxkart-b0at.onrender.com/identify`
 
-**Description:** This endpoint is which was mentioned in assignment.
+**Description:** The endpoint which was mentioned in assignment for Identity Reconciliation.
 
 **Request:**
 
