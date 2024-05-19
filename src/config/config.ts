@@ -1,10 +1,7 @@
 import dotenv from 'dotenv';
-dotenv?.config();
+import { Supabase_Config_Object } from '../types/fluxkartType';
 
-interface Supabase_Config_Object {
-    SUPABASE_CLIENT_API_KEY: string;
-    SUPABASE_URL: string;
-}
+dotenv?.config();
 
 export const Supabase_Config: Supabase_Config_Object = {
     SUPABASE_CLIENT_API_KEY: process?.env?.SUPABASE_CLIENT_API_KEY || 'default-supabase-api-key',

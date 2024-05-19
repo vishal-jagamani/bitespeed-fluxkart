@@ -23,7 +23,8 @@ app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded requests
 app.use(express.static(join(__dirname, '/'))); // Serve static files from the '/' directory
 
-import { identify } from './services/biteSpeedService.js';
+import { identify } from './services/fluxkartService.js';
+import { error } from './types/fluxkartType.js';
 
 app.get('/', (req: Request, res: Response) => {
     res.send('BiteSpeed Fluxkart Server');
@@ -43,9 +44,9 @@ app.post('/identify', async (req: Request, res: Response) => {
 });
 
 // Middleware to handle any errors
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((err: error, req: Request, res: Response, next: NextFunction) => {
     console.error(err.stack);
-    res.status(500).send('Something went wrong!');
+    res.status(err.status || 500).send({ name: err.name, message: err.message, stack: err.stack });
 });
 
 // Middleware to handle 404 errors
