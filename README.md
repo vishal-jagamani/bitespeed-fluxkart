@@ -13,9 +13,8 @@ This is a small Node.js project using TypeScript, designed to demonstrate the us
 ### `POST https://bitespeed-fluxkart-b0at.onrender.com/identify`
 
 
-> **Important Note:**
-> This endpoint is hosted on Render's free tier, which goes to sleep after 15 minutes of inactivity. When the API is accessed after it has gone to sleep, it takes approximately 40 seconds to 1 minute to restart the service and respond. Once the service starts running, subsequent responses are quick.
-
+> **⚠️ Important Note:**
+> **This endpoint is hosted on Render's free tier, which goes to sleep after 15 minutes of inactivity. When the API is accessed after it has gone to sleep, it takes approximately 40 seconds to 1 minute to restart the service and respond. Once the service starts running, subsequent responses are quick.**
 
 **Description:** The endpoint which was mentioned in assignment for Identity Reconciliation.
 
